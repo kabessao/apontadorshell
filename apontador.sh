@@ -5,7 +5,7 @@ echo "Comandos:
 	-D Modo debug;
 	-e Forçar ou não mostrar a mensagem de falta do arquivo jar (1 para sim e 0 para não)
 	-E Forçar ou não mostrar a mensagem de falta do arquivo xml (1 para sim e 0 para não)
-"
+	-f Não pergunta se deseja gravar, já grava de uma vez"
 exit 1
 
 }
