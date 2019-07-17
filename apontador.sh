@@ -96,16 +96,19 @@ then
 	#java -jar apontador.jar apontador.xls
 	#gravado=$($Comando | grep "Gravado"  | wc -l)
 
+	echo "------------------------------
+------------------------------" >> ~/ApontadorLog.txt
 	($Comando | while read line 
 	do
-		((linha++))
-		if echo $line | grep "Gravado" >> /dev/null
+		if echo $line | grep "Created" >> /dev/null
 		then 
-			echo "# Gravando a linha $linha";
-		elif echo $line | grep -i "erro" >> /dev/null 
+			((linha++))
+			echo "# Status linha $linha: $line";
+		elif echo $line | grep -i "Unprocessable" >> /dev/null 
 		then
 			echo "# Falha ao tentar gravar a linha $linha:\n$line"
 		fi
+		echo $line >> ~/ApontadorLog.txt
 		
 	done)| zenity --progress --title=Gravando --pulsate
  else 
