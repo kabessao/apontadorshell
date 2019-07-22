@@ -1,4 +1,5 @@
 #!/bin/bash
+#version 0.0.0
 show_help () {
 echo "Comandos:
 	-d Forçar mensagem de diferença do arquivo com o timeout;
