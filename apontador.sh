@@ -43,8 +43,7 @@ if [[ -a $ApontadorJar ]]
 then
 	echo "encontrado $ApontadorJar"
 else 
-	zenity --warning --title="$Titulo"  --text="$ApontadorJar não encontrado. Verifique se ele está na mesma pasta que o script ou com um nome diferente"
-	echo "$ApontadorJar não encontrado"
+	zenity --warning --title="$Titulo"  --text="Arquivo jar não encontrado. Use o botão de Setup e tente novamente"
 	exit 1
 fi
 fi
@@ -58,7 +57,7 @@ if [[ -a "$ApontadorXls" ]]
 then
 	echo "encontrado $ApontadorXls"
 else 
-	zenity --warning --title="$Titulo"  --text="$ApontadorXls não encontrado. Verifique se ele está na mesma pasta que o script ou com um nome diferente"
+	zenity --warning --title="$Titulo"  --text="arquivo xls não encontrado. Use o botão Setup e tente novamente"
 	echo "$ApontadorXls não encontrado"
 	exit 1
 fi
@@ -70,7 +69,7 @@ Hora=$(date +%k:%m)
 ModificadoTotal=$(stat $ApontadorXls --format=%y)
 ModificadoTotal=${ModificadoTotal:0:16}
 Diferenca=$(($(($(date "+%s") - $(date -d "$ModificadoTotal" "+%s"))) / 3600))
-echo "diferença $Diferenca, timeout: $timeOut"
+echo "Modificado em horas: $Diferenca, timeout: $timeOut"
 
 if [[ "$Diferenca" != "1" ]] ; then
 if [ "$Diferenca" -lt "$timeOut" ] 
@@ -78,8 +77,7 @@ then
 	echo "Apontador atualizado recentemente"
 else 
 	echo "Apontador desatualizado. Diferença $Diferenca"
-	zenity --warning --title="$Titulo" --text="Foi detectado que a planilha não foi atualizada recentemente.
-		Salve a planilha e tente novamente"
+	zenity --warning --title="$Titulo" --text="A planilha não foi salva recentemente. Salve e tente novamente"
 	exit 1
 fi
 fi
