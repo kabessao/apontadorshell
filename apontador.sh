@@ -110,7 +110,7 @@ then
 		fi
 		echo $line >> ~/ApontadorLog.txt
 		
-	done)| zenity --progress --title=Gravando --pulsate
+	done)| zenity --progress --title=Gravando --pulsate --auto-kill
  else 
 	echo "Ação cancelada pelo usuario"
 	exit
