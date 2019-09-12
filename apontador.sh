@@ -93,21 +93,12 @@ fi
 
 if [[ "$resposta" == "0" ]] 
 then
-	#java -jar apontador.jar apontador.xls
-	#gravado=$($Comando | grep "Gravado"  | wc -l)
-
 	echo "------------------------------
 ------------------------------" >> ~/ApontadorLog.txt
 	($Comando | while read line 
 	do
-		if echo $line | grep "Created" >> /dev/null
-		then 
-			((linha++))
-			echo "# Status linha $linha: $line";
-		elif echo $line | grep -i "Unprocessable" >> /dev/null 
-		then
-			echo "# Falha ao tentar gravar a linha $linha:\n$line"
-		fi
+		((linha++))
+		echo "# Status linha $linha: $line";
 		echo $line >> ~/ApontadorLog.txt
 		
 	done)| zenity --progress --title=Gravando --pulsate --auto-kill
