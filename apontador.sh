@@ -97,9 +97,12 @@ then
 ------------------------------" >> ~/ApontadorLog.txt
 	($Comando | while read line 
 	do
-		((linha++))
-		echo "# Status linha $linha: $line";
-		echo $line >> ~/ApontadorLog.txt
+		if echo $line | grep "Gravado" >> /dev/null
+		then 
+			((linha++))
+			echo "# Status linha $linha: $line";
+			echo $line >> ~/ApontadorLog.txt;
+		fi
 		
 	done)| zenity --progress --title=Gravando --pulsate --auto-kill
  else 
