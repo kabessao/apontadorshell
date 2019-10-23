@@ -102,7 +102,7 @@ then
 		then 
 			((linha++))
 			echo "# Status linha $linha: $line";
-			echo $line >> ~/ApontadorLog.txt;
+			echo "$linha - $line" >> ~/ApontadorLog.txt;
 		fi
 		
 	done)| zenity --progress --title=Gravando --pulsate --auto-kill
