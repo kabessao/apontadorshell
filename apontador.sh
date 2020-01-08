@@ -94,7 +94,7 @@ fi
 if [[ "$resposta" == "0" ]] 
 then
 	echo "------------------------------
-	$(date +"%A %d/%m/%Y %k:%m")
+	$(date +"%A %d/%m/%Y %k:%M")
 ------------------------------" >> ~/ApontadorLog.txt
 	($Comando | while read line 
 	do
