@@ -98,14 +98,8 @@ then
 ------------------------------" >> ~/ApontadorLog.txt
 	($Comando | while read line 
 	do
-		if echo $line | grep "Gravado" >> /dev/null
-		then 
-			((linha++))
-			echo "# Status linha $linha: $line";
-			echo "$linha - $line" >> ~/ApontadorLog.txt;
-		fi
-		
-	done)| zenity --progress --title=Gravando --pulsate --auto-kill
+	    echo "#line"
+	done)| yad --enable-log="processando" --progress --title=Gravando --pulsate --auto-kill
  else 
 	echo "Ação cancelada pelo usuario"
 	exit
