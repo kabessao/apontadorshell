@@ -98,7 +98,7 @@ then
 ------------------------------" >> ~/ApontadorLog.txt
 	($Comando | while read line 
 	do
-	    echo "#line"
+	    echo "#$line"
 	done)| yad --enable-log="processando" --progress --title=Gravando --pulsate --auto-kill
  else 
 	echo "Ação cancelada pelo usuario"
