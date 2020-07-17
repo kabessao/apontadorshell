@@ -105,7 +105,7 @@ then
 	    fi
 	    echo "${OUTPUT}" >> ~/ApontadorLog.txt
 	    echo "#${OUTPUT}"
-	done)| yad --enable-log="processando" --progress --title=Gravando --pulsate --auto-kill --log-expanded
+	done)| yad --enable-log="processando" --progress --title=Gravando --pulsate --auto-kill --log-expanded --width 200 --height 150
  else 
 	echo "Ação cancelada pelo usuario"
 	exit
